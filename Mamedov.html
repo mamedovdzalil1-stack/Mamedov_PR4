@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевод морских миль в километры</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 40px auto; padding: 20px; background: #f4f4f9; }
+        .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 8px; margin: 8px 0 12px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; background: #007bff; color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-size: 1em; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 15px; font-weight: bold; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Морские мили в километры</h2>
+        <label for="miles">Введите расстояние в морских милях:</label>
+        <input type="number" id="miles" step="any" placeholder="Например: 10">
+        <button onclick="calculate()">Рассчитать</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const miles = parseFloat(document.getElementById('miles').value);
+            if (isNaN(miles)) {
+                document.getElementById('result').innerText = "Пожалуйста, введите число.";
+                return;
+            }
+            const kilometers = (miles * 1852) / 1000;
+            document.getElementById('result').innerText = `Расстояние в километрах: ${kilometers}`;
+        }
+    </script>
+</body>
+</html>

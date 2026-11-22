@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квадрат по диагонали</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 40px auto; padding: 20px; background: #f4f4f9; }
+        .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 8px; margin: 8px 0 12px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; background: #007bff; color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-size: 1em; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 15px; font-weight: bold; color: #2c3e50; white-space: pre-line; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Квадрат по диагонали</h2>
+        <label for="diagonal">Введите длину диагонали квадрата (d):</label>
+        <input type="number" id="diagonal" step="any" placeholder="Например: 5">
+        <button onclick="calculate()">Рассчитать</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const d = parseFloat(document.getElementById('diagonal').value);
+            if (isNaN(d)) {
+                document.getElementById('result').innerText = "Пожалуйста, введите длину диагонали.";
+                return;
+            }
+            const a = d / Math.sqrt(2);
+            const p = 4 * a;
+            const s = a ** 2;
+            document.getElementById('result').innerText = `Сторона квадрата: ${a.toFixed(2)}\nПериметр: ${p.toFixed(2)}\nПлощадь: ${s.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
